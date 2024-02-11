@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Einmaleins</title>
+  <link rel="stylesheet" href="../Framworks/material.min.css">
+  <script src="../Framworks/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="Einmaleins_Version1.2.js"></script>
+  <link href="Einmaleins.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../Einstellungen.css">
+  <script src="../renderer.js"></script>
+</head>
+<script>
+  function init() {
+    var data = [GET('Richtig'), GET('Falsch'), 10 * (10 - GET('Falsch')), GET('Zeit')];
+
+    const id = ['r', 'f', 'p', 'z'];
+    for (let i = 0; i < data.length; i++) {
+      window.document.getElementById(id[i]).innerHTML = data[i];
+
+    }
+  }
+  window.addEventListener('load', init);
+</script>
+
+<body>
+  <!-- Always shows a header, even in smaller screens. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Ergebniss</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Testen</span>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+
+        <div class="Ergebniss">
+          <h1 class="title">Ergebniss</h1>
+          <div class="body">
+            <div class="richtig" id="r"></div><i class="material-icons">done</i>
+            <div class="falsch" id="f"></div><i class="material-icons">close</i>
+            <div class="prozent" id="p"></div><img src="../icons/Prozent.svg" alt="Fortschritte" />
+            <div class="er-zeit" id="z"></div><div class="zic"><i class="material-icons">schedule</i></div>
+          </div>
+          <!-- Colored raised button -->
+          <div class="dialog-button">
+            <a href="../index.html" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+              Weiter
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+
+</body>
+
+</html>

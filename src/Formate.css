@@ -1,0 +1,23 @@
+.page-content {
+  padding: 10% 20%;
+  margin: 0px;
+}
+
+#Anzeige,
+#Antwirt {
+  font-family: sans-serif;
+  font-size: 30pt;
+  margin: 10px;
+  color: black;
+}
+
+/*.mdl-textfield__label {
+   
+}
+*/
+/*.Karte {
+  position: absolute;
+  background-color: white;
+  padding: 20px 20px;
+}*/
+
