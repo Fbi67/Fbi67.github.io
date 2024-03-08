@@ -1,22 +1,94 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-<title>Login</title>
-  <link rel="stylesheet" href="Framworks/material.css"/>
-</head>
-<body>
 
-  <!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="page-content">
-      
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="Einstellungen.css">
+  <title>Einmaleins</title>
+  <link rel="stylesheet" href="Framworks/material.min.css" />
+  <script src="./Framworks/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <script src="./Einmaleins/Einmaleins_Version1.2.js"></script>
+  <link href="./Einmaleins/Einmaleins.css" rel="stylesheet" />
+  <script src="./renderer.js"></script>
+</head>
+
+<body onload="foc()">
+  <script>
+    function foc() {
+      document.getElementById('Feld').focus();
+    }
+    
+    function Fehlermeldung(text) {
+      document.getElementById('Aufforderung').innerHTML=text;
+    }
+
+    function Formularueberpruefe() {
+      if ((document.getElementById('Feld').value=="")||(document.getElementById('reihe2').value=="")) {
+        Fehlermeldung('Bitte alle Felder ausfüllen');
+        return false;
+      }
+       else {
+        return true;
+      }
+    }
+  </script>
+  <!-- Always shows a header, even in smaller screens. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Testen</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href="#">Neue Reihe ausw&auml;hlen</a>
+          <a class="mdl-navigation__link" href="./Einstellungen/index.html">Einstellungen</a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Testen</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="#">Neue Reihe ausw&auml;hlen</a>
+        <a class="mdl-navigation__link" href="./Einstellungen/index.html">Einstellungen</a>
+      </nav>
     </div>
-  </main>
-</div>
-  
+    <main class="mdl-layout__content">
+      <div class="page-content">
+
+        <div class="center-1">
+          <form action="./Einmaleins/index.html" method="get" onsubmit="return Formularueberpruefe()">
+            <div class="Karte1">
+              <p id="Aufforderung" style="color: black;">Bitte Reihe eingeben</p>
+
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" id="Feld" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="Reihe"
+                  autocomplete="off" />
+                <label class="mdl-textfield__label" for="Feld">Reihe...</label>
+                <span class="mdl-textfield__error">Input is not a number!</span>
+              </div>
+              <p style="font-size: 16pt; display: inline; color: black;">*</p>
+              <kbd style="font-size: 11pt; display: inline; color: black;">(alt+a)</kbd>
+              <select name="Reihe2" title="Zweite Reihe" accesskey="a" id="reihe2">
+                <option value=""></option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="10">15</option>
+                <option value="20">20</option>
+              </select>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+                Starten
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </main>
+  </div>
 </body>
+
 </html>
