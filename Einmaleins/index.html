@@ -37,6 +37,9 @@
     FrageStellen();
     // Fokus auf das Antwortfeld setzen
     document.getElementById("Antwort").focus();
+    window.addEventListener("close",()=>{
+      var c = confirm('Möchten sie wirklich abrechen')
+    })
   });
 
 
