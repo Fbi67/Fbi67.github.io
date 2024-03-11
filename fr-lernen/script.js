@@ -57,4 +57,3 @@ let currentNumber;
 
 generateQuestion();
 
-}
