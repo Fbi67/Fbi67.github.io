@@ -37,9 +37,6 @@
     FrageStellen();
     // Fokus auf das Antwortfeld setzen
     document.getElementById("Antwort").focus();
-    window.addEventListener("abort",()=>{
-      var c = confirm('Möchten sie wirklich abrechen')
-    })
   });
   
 
@@ -83,7 +80,7 @@
 
             <!-- Eingabefeld für die Antwort -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="Antwort"
+              <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="Antwort"
                 autocomplete="off" />
               <label class="mdl-textfield__label" for="Antwort">Antwort...</label>
               <span class="mdl-textfield__error">Input ist keine Zahl</span>
