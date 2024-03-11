@@ -40,4 +40,3 @@ showNumberBtn.addEventListener('click', () => {
     numberDisplay.textContent = numbers[randomNumber];
 });
 
-}
