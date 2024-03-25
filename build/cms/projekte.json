@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "text": "Unsere Paradiesli in Gärten und auf Balkonen",
+    "title": "Balkonistas",
+    "src": "projekte/balkonistas/balkonistas.jpg",
+    "herf": "/projects/balkonistas"
+  },
+  {
+    "id": 2,
+    "text": "Bist Kostenlos und auf dich massgeschneidert",
+    "title": "Beratung Wirken statt Tun",
+    "src": "Beratung_Quadrat.jpg",
+    "herf": "/projects/Beratung-Wirken-statt-Tun"
+  },
+  {
+    "id": 3,
+    "text": "Bist du bereit für eine wilde Mahlzeit?",
+    "title": "Geniesser-Abonnement",
+    "src": "/projekte/geniesser-abo.jpg",
+    "herf": "/projects/Geniesser-Abonnement"
+  },
+  {
+    "id": 4,
+    "text": "Lecker essen und Kohle machen",
+    "title": "Klimagrill",
+    "src": "projekte/klimagrill.jpg",
+    "herf": "/projects/Klimagrill"
+  },
+  {
+    "id": 5,
+    "text": "Im Kleinen selber Meeris retten",
+    "title": "Meeridome",
+    "src": "projekte/Meeridome/meeridome_button.jpg",
+    "herf": "/projects/Meeridome"
+  },
+  {
+    "id": 6,
+    "text": "Die Miss für bewusste Schönheitskultur",
+    "title": "Miss Save the Planet",
+    "src": "stp_mini.jpg",
+    "herf": "/projects/Miss-and-save-Planet"
+  },
+  {
+    "id": 7,
+    "text": "Wir setzen deine Bedürfnisse im Garten um",
+    "title": "Naturgartenbau",
+    "src": "projekte/Naturgartenbau/naturgartenbau.jpg",
+    "herf": "/projects/Naturgartenbau"
+  },
+  {
+    "id": 8,
+    "text": "Elisa",
+    "title": "hhjhjhjhjjhbjhgcasbzucagu",
+    "src": "Blog.jpg",
+    "href": "/projects/"
+  },
+  {
+    "id": 9,
+    "text": "Elisa",
+    "title": "hhjhjhjhjjhbjhgcasbzucagu",
+    "src": "Blog.jpg"
+  }
+]
