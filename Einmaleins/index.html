@@ -1,116 +1,79 @@
 <!DOCTYPE html>
-<html lang="CH-de">
+<html lang="de">
 
 <head>
-  <!-- Meta-Angaben für Zeichenkodierung und Ansicht -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Testen</title>
-
-  <!-- Einbindung von Material Design Framework -->
-  <link rel="stylesheet" href="../Framworks/material.min.css" />
-  <script src="../Framworks/material.min.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <!-- Einbindung von benutzerdefinierten Stylesheets -->
-  <link href="Einmaleins.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../Einstellungen.css">
-  <script src="../renderer.js"></script>
-  <style>
-    .Zeit {
-      font-size: 11pt;
-      display: flex;
-      margin: 5px;
-    }
-    .Zeit .Z1 {
-       color: black;
-    }
-    .Zeit .Z1 {
-       color: lightblue;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willkommen</title>
+    <link rel="stylesheet" href="../css/material.min.css">
+    <script src="../js/material.min.js"></script>
+    <script src="../js/script.js" type="module"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
-
 <script>
-  // JavaScript-Code für das Laden der Seite
-  window.addEventListener("load", () => {
-    // Funktion zum Stellen einer Frage aufrufen
-    FrageStellen();
-    // Fokus auf das Antwortfeld setzen
-    document.getElementById("Antwort").focus();
-  });
-  
+    function foc() {
+        document.getElementById('Feld').focus();
+    }
 
+    function Fehlermeldung(text) {
+        document.getElementById('Aufforderung').innerHTML = text;
+    }
 
+    function Formularueberpruefe() {
+        if ((document.getElementById('Feld').value == "") || (document.getElementById('reihe2').value == "")) {
+            Fehlermeldung('Bitte alle Felder ausfüllen');
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 </script>
 
 <body>
-  
-  <!-- Haupt-Layout -->
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <!-- Header-Bereich -->
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <!-- Titel der Seite -->
-        <span class="mdl-layout-title">Testen</span>
-        <!-- Platzhalter zum Ausrichten der Navigation rechts -->
-        <div class="mdl-layout-spacer"></div>
-        <!-- Navigation (versteckt bei kleinen Bildschirmen) -->
-        <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" href="../index.html">Neue Reihe ausw&auml;hlen</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Seitennavigation für kleine Bildschirme -->
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Testen</span>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="../index.html">Neue Reihe ausw&auml;hlen</a>
-      </nav>
-    </div>
-
-    <!-- Hauptinhalt der Seite -->
-    <main class="mdl-layout__content">
-      <div class="page-content">
-        <div class="center-2">
-          <div class="Karte2">
-            <div class="Zeit"><div class="Z1">Zeit:&nbsp;</div><div class="Z2" id="Zeit">00:00</div></div>
-            <!-- Anzeige-Element für die Frage -->
-            <p id="Anzeige"></p>
-
-            <!-- Eingabefeld für die Antwort -->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="Antwort"
-                autocomplete="off" />
-              <label class="mdl-textfield__label" for="Antwort">Antwort...</label>
-              <span class="mdl-textfield__error">Input ist keine Zahl</span>
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header mdl-layout__header--transparent">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Fabian356</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation -->
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href='../'>Startseite</a>
+                </nav>
             </div>
-
-            <!-- Button zum Fortfahren -->
-            <button class="mdl-button mdl-js-button mdl-js-ripple mdl-button--raised mdl-button--colored"
-              onclick="weiter()">
-              &Uuml;berprüfen
-            </button>
-
-            <div class="message-f hidden" id="m">
-              <div class="container" id="t"></div>
-              <div class="accept-button">
-                <!-- Flat button with ripple -->
-                <button id="b" type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-                  Weiter
-                </button>
-
-              </div>
-            </div>
-            <div class="overlay hidden" id="overlay"></div>
-          </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Fabian356</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href='../'>Startseite</a>
+            </nav>
         </div>
-      </div>
-
-    </main>
-  </div>
-  <!-- Einbindung von benutzerdefiniertem JavaScript -->
-  <script src="Einmaleins_Version1.2.js"></script>
+        <main class="mdl-layout__content">
+            <div class="home white">
+                <p id="Aufforderung" class="grossi">Bitte Reihe eingeben</p>
+                <form action="../fragen/einmaleins/" class="flexwrap" method="get">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" name="reihe" pattern="-?[0-9]*(\.[0-9]+)?" id="Feld">
+                        <label class="mdl-textfield__label" for="Feld">Reihe...</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+                    <img alt="*" src="../assets/mal.png" class="icon"/>
+                    <select name="reihe2" title="Zweite Reihe" id="reihe2">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="10">15</option>
+                        <option value="20">20</option>
+                    </select>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+                        Starten
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
 </body>
 
 </html>

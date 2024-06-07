@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title title></title>
+    <link rel="stylesheet" href="../../css/material.min.css">
+    <script src="../../js/material.min.js"></script>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="../../js/script.js"></script>
+</head>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("[title]").forEach(function (e) {
+            e.innerText = 'Fabian356';
+        })
+    })
+</script>
+
+<body>
+
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header mdl-layout__header--transparent">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title" title>Malaufgaben-Quiz</span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href='../../'>Startseite</a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title" title>Malaufgaben-Quiz</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href='../../'>Startseite</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="home white">
+                <div class="Zeit">
+                    <div class="Z1">Zeit:&nbsp;</div>
+                    <div class="Z2" id="Zeit">00:00</div>
+                </div>
+                <p class="grossi" id="frage"></p>
+                <div class="flexwrap form">
+                    <!-- Numeric Textfield -->
+
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" autocomplete="off" type="text" pattern="-?[0-9]*(\.[0-9]+)?"
+                            id="antwort">
+                        <label class="mdl-textfield__label" for="antwort">Reihe...</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button"
+                        id="pruefen">
+                        Prüfen
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="./script.js">
+    </script>
+</body>
+
+</html>

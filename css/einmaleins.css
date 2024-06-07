@@ -1,0 +1,82 @@
+.body {
+    height: 70px;
+    display: flex;
+    align-items: center;
+
+    .prozent {
+        border-radius: 15px;
+        border: lightblue solid 3px;
+        border-top: lightblue solid 5px;
+        display: inline-flex;
+        margin: 1px;
+        width: 80px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .falsch {
+        border-radius: 15px;
+        border: red solid 3px;
+        border-top: red solid 5px;
+        display: inline-flex;
+        margin: 1px;
+        width: 80px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .richtig {
+        border-radius: 15px;
+        border: yellowgreen solid 3px;
+        border-top: yellowgreen solid 5px;
+        display: inline-flex;
+        margin: 1px;
+        width: 80px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .er-zeit {
+        border-radius: 15px;
+        border: rgb(107, 50, 205) solid 3px;
+        border-top: rgb(107, 50, 205) solid 5px;
+        display: flex;
+        margin: 2px;
+        width: 160px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .zic {
+        display: inline-flex;
+    }
+}
+
+.icon {
+    height: 2em;
+    width: 2em;
+}
+
+.grossi {
+    font-size: 2em;
+    height: 10px;
+}
+
+.Zeit {
+    font-size: 11pt;
+    display: flex;
+    margin: 5px;
+    --ddd: rgb(255, 90, 68);
+}
+
+.Zeit .Z1 {
+    color: black;
+}
+
+.Zeit .Z1 {
+    color: lightblue;
+}

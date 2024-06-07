@@ -1,0 +1,178 @@
+@import url(./einmaleins.css);
+
+.demo-layout-transparent {
+  /*linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), */
+  background: url("../assets/hintergrund1.jpg") center / cover;
+}
+
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  color: white;
+}
+
+.mdl-layout__content {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .mdl-layout__content {
+    justify-content: start;
+    align-items: center;
+    display: block;
+  }
+}
+
+.html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.demo-card-square.mdl-card {
+  width: 100%;
+  margin: 10px;
+  height: 160px;
+  z-index: 0;
+  align-items: center;
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .demo-card-square.mdl-card {
+    width: 160px;
+    height: 130px;
+  }
+}
+
+.home {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 20px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 10px;
+    gap: 10px;
+    border-radius: 0;
+    position: absolute;
+    top: 4.5rem;
+    left: 0rem;
+  }
+}
+
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.dialog .container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.dialog .container .content {
+  background: azure;
+  border-radius: 20px;
+  padding: 20px;
+  width: 400px;
+  max-width: 400px;
+  height: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.home form,
+.home .form {
+  gap: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.home form select,
+.home .form select {
+  height: 1.4em;
+}
+
+.flexwrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .flexwrap {
+    flex-direction: column;
+  }
+
+  .home form,
+  .home .form {
+    align-items: start;
+  }
+}
+
+.home.white {
+  background-color: #f0ffff;
+  color: black;
+}
+
+.mdl-layout__content .page-content {
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: azure center / contain;
+}
+
+#blocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+canvas {
+  display: block;
+}
+
+.rechnungen {
+  width: 300px;
+}

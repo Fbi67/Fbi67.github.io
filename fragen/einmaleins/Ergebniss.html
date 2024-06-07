@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title title></title>
+    <link rel="stylesheet" href="../../css/material.min.css">
+    <script src="../../js/material.min.js"></script>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="../../js/script.js"></script>
+</head>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("[title]").forEach(function (e) {
+            e.innerText = 'Fabian356';
+        })
+    })
+</script>
+
+<body>
+
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header mdl-layout__header--transparent">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title" title>Malaufgaben-Quiz</span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href='../../'>Startseite</a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title" title>Malaufgaben-Quiz</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href='../../'>Startseite</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="home white">
+                <p class="grossi">Ergebniss</p>
+                <div class="body">
+                    <div class="richtig" id="r"></div>
+                    <div class="falsch" id="f"></div>
+                    <div class="prozent" id="p"></div>
+                    <div class="er-zeit" id="z"></div>
+                    <!-- Accent-colored raised button with ripple -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" id="detail">
+                        Details
+                    </button>
+                </div>
+                <p id="info"></p>
+                <a href="../../einmaleins/" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" role="button">
+                    Weiter
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <script src="./ergebnis.js">
+    </script>
+</body>
+
+</html>
