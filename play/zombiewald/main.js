@@ -224,8 +224,8 @@ function win() {
   const blocker = document.getElementById('blocker');
   const instructions = document.getElementById('instructions');
   instructions.style.display = 'block';
-  document.getElementById('title').innerHTML = 'You Win!';
-  document.getElementById('text').innerHTML = 'You Win!';
+  document.getElementById('title').innerHTML = 'Gewonnen!';
+  document.getElementById('text').innerHTML = 'Gewonnen!';
   blocker.style.display = 'flex';
   controls.unlock();
 }
