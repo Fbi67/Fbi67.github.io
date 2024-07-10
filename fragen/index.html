@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title title></title>
+    <link rel="stylesheet" href="../css/material.min.css">
+    <script src="../js/material.min.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+
+    </style>
+</head>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("[title]").forEach(function (e) {
+            e.innerText = 'Fabian356';
+        })
+    })
+</script>
+
+<body>
+
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header mdl-layout__header--transparent">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title" title>Malaufgaben-Quiz</span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href='../'>Startseite</a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title" title>Malaufgaben-Quiz</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href='../'>Startseite</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="home white">
+                <p class="grossi" id="frage"></p>
+                <div class="flexwrap form">
+                    <!-- Numeric Textfield -->
+
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" autocomplete="off" type="text" pattern="-?[0-9]*(\.[0-9]+)?"
+                            id="antwort">
+                        <label class="mdl-textfield__label" for="antwort">Reihe...</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button"
+                        id="pruefen">
+                        Prüfen
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        class Dialog {
+            dialog;
+            closeButton;
+            onCloseCallback; // Optionale Rückruffunktion für Aktionen nach dem Schließen des Dialogs
+
+            constructor(content, title, options) {
+                this.dialog = document.createElement('div');
+                this.dialog.className = 'dialog';
+                this.dialog.style.display = 'none';
+                this.dialog.innerHTML = `
+            <div class="container">
+                <div class="content">
+                    <h2>${title}</h2>
+                    <p>${content}</p>
+                </div>
+            </div>`;
+                document.body.appendChild(this.dialog);
+
+                this.addCloseButton('Schließen');
+                this.addEnterKeyHandler(); // Dialog kann mit Enter geschlossen werden
+            }
+
+            addCloseButton(textContent) {
+                this.closeButton = document.createElement('button');
+                this.closeButton.className = 'close mdl-button mdl-js-button mdl-js-ripple-effect';
+                this.closeButton.textContent = textContent;
+                this.closeButton.addEventListener('click', this.close.bind(this));
+                document.querySelector('.content').appendChild(this.closeButton);
+            }
+
+            addEnterKeyHandler() {
+                this.closeButton.addEventListener('keypress', (event) => {
+                    if (event.key === 'Enter') {
+                        this.close(); // Schließt den Dialog
+                    }
+                });
+            }
+
+            setOnCloseCallback(callback) {
+                this.onCloseCallback = callback; // Setzt die Rückruffunktion
+            }
+
+            close() {
+                if (document.body.contains(this.dialog)) {
+                    document.body.removeChild(this.dialog);
+                }
+                if (this.onCloseCallback) {
+                    this.onCloseCallback(); // Führt den Callback aus, wenn vorhanden
+                }
+            }
+
+            open() {
+                this.dialog.style.display = 'block';
+                this.closeButton.focus();
+            }
+        }
+
+
+        var runde = 1;
+        var punktzahl = 0;
+
+        function neueFrage() {
+            var zahl1 = Math.floor(Math.random() * 10) + 1;
+            var zahl2 = Math.floor(Math.random() * 10) + 1;
+            document.getElementById('frage').innerText = `Was ist ${zahl1} x ${zahl2}?`;
+            return [zahl1, zahl2];
+        }
+
+        function FrageStellen() {
+            var neueZahlen = neueFrage();
+            console.log("Neue Frage gestellt:", neueZahlen);
+        }
+
+        document.getElementById('pruefen').addEventListener('click', function () {
+            var dialog;
+            if (fragePruefen(zahlen[0], zahlen[1])) {
+                dialog = new Dialog("Richtig!", "Glückwunsch");
+            } else {
+                dialog = new Dialog("Falsch! Versuch es noch einmal.", "Leider falsch");
+            }
+            dialog.setOnCloseCallback(FrageStellen); // Setzt den Callback zum Frage-Stellen
+            dialog.open(); // Öffnet den Dialog
+        });
+
+        var zahlen = neueFrage();
+
+        document.getElementById('pruefen').addEventListener('click', function () {
+            if (runde <= 10) {
+                fragePruefen(zahlen[0], zahlen[1]);
+
+                if (runde < 10) {
+                    runde++;
+                    document.getElementById('antwort').value = "";
+                    zahlen = neueFrage();
+                } else {
+                    // Weiterleitung auf eine andere Seite und die Punktzahl in der URL übergeben
+                    window.location.href = `summary.html?punktzahl=${punktzahl}`;
+                }
+            }
+        });
+
+        // Prüfen mit der Enter-Taste
+        document.getElementById('antwort').addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                document.getElementById('pruefen').click(); // Ruft den Prüfen-Button auf
+            }
+        });
+    </script>
+</body>
+
+</html>
